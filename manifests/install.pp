@@ -27,6 +27,11 @@ class redis::install (
         package { 'redis-server':
           ensure => $redis_version,
         }
+
+        file { "/etc/init.d/redis-server":
+          ensure  => absent,
+          require => Package['redis-server']
+        }
       }
       default: {
         fail('The module does not support this OS.')
