@@ -16,6 +16,10 @@
 #   Algorithm used to manage keys. See Redis docs for possible values. Default: allkeys-lru
 # [*redis_timeout*]
 #   Default: 0
+# [*redis_master*]
+#   Default: true
+# [*redis_masterip*]
+#   Default: undef
 # [*redis_nr_dbs*]
 #   Number of databases provided by redis. Default: 1
 # [*redis_dbfilename*]
@@ -38,6 +42,8 @@ define redis::server (
   $redis_port       = 6379,
   $redis_mempolicy  = 'allkeys-lru',
   $redis_timeout    = 0,
+  $redis_master     = true,
+  $redis_masterip   = undef,
   $redis_nr_dbs     = 1,
   $redis_dbfilename = 'dump.rdb',
   $redis_dir        = '/var/lib',
