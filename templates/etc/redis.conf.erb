@@ -488,6 +488,13 @@ activerehashing yes
 #client-output-buffer-limit slave 256mb 64mb 60
 #client-output-buffer-limit pubsub 32mb 8mb 60
 
+<% if ! @redis_master -%>
+slaveof <%= @redis_masterip %> <%= @redis_port %>
+slave-serve-stale-data yes
+slave-read-only yes
+slave-priority 100
+<% end -%>
+
 ################################## INCLUDES ###################################
 
 # Include one or more other config files here.  This is useful if you
