@@ -35,7 +35,7 @@ bind <%= @redis_ip %>
 # incoming connections. There is no default, so Redis will not listen
 # on a unix socket when not specified.
 #
-unixsocket /var/run/redis/redis.sock
+unixsocket <%= @redis_socket %>
 
 # Close the connection after a client is idle for N seconds (0 to disable)
 timeout 0
