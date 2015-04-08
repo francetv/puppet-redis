@@ -12,6 +12,8 @@
 #   Listen IP. Default: 127.0.0.1
 # [*redis_port*]
 #   Listen port of Redis. Default: 6379
+# [*redis_socket*]
+#   Socket of Redis. Default: /var/run/redis.sock
 # [*redis_mempolicy*]
 #   Algorithm used to manage keys. See Redis docs for possible values. Default: allkeys-lru
 # [*redis_timeout*]
@@ -40,6 +42,7 @@ define redis::server (
   $redis_memory     = '100mb',
   $redis_ip         = '127.0.0.1',
   $redis_port       = 6379,
+  $redis_socket     = '/var/run/redis.sock',
   $redis_mempolicy  = 'allkeys-lru',
   $redis_timeout    = 0,
   $redis_master     = true,
